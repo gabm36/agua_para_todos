@@ -1,0 +1,87 @@
+#pessoasBeberam {
+    font-size: 3em;
+}
+
+#aguometro {
+    background-color: #1F536C;
+    color: white;
+}
+
+#hero {
+    text-shadow: 0px 0px 80px black;
+    background-image: linear-gradient(90deg, rgb(255 255 255 / 40%) 0%, rgb(255 255 255 / 30%) 50%, rgb(255 255 255 / 15%) 100%),
+        url(../imgs/index_hero.jpg);
+    background-size: cover;
+    background-position: center center;
+}
+
+#parceiros {
+    background-image: url("../imgs/terra.webp");
+    background-repeat: no-repeat;
+}
+
+#fontlimpa {
+    background-image: url("../imgs/sache.png");
+    background-repeat: no-repeat;
+}
+
+#defensor {
+    background-image: url("../imgs/agua.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: auto;
+}
+
+@media (max-width: 575.98px) {
+    #parceiros {
+        background-position: center bottom -525px;
+        padding-bottom: 160px;
+    }
+
+    #fontlimpa {
+        background-position: right -194px bottom -323px;
+        padding-bottom: 220px;
+    }
+}
+
+@media (min-width: 576px) {
+    #parceiros {
+        background-position: right -227px bottom -567px;
+    }
+
+    #fontlimpa {
+        background-position: right -172px bottom -261px;
+        padding-bottom: 220px;
+    }
+}
+
+@media (min-width: 768px) {
+    #parceiros {
+        background-position: right -348px bottom 150%;
+    }
+
+    #fontlimpa {
+        background-position: right -36px bottom -220px;
+        padding-bottom: 0;
+    }
+}
+
+@media (min-width: 992px) {
+    #parceiros {
+        background-position: right -150px bottom 150%;
+    }
+
+    #fontlimpa {
+        background-position: right 44px bottom -98px;
+    }
+}
+
+@media (min-width: 1200px) {
+    #parceiros {
+        background-position: right bottom 150%;
+    }
+
+    #fontlimpa {
+        background-position: right 109px bottom 50%;
+    }
+}

@@ -1,0 +1,70 @@
+/* Cores:
+
+color-primary: #427791; 
+color-primary: #E0EFF7; 
+color-primary: #84AFC4; 
+color-primary: #1F536C; 
+color-primary: #021F2E; 
+cor-fundo-alternativa: #E5A963; 
+cor-fundo-alternativa: #FFF4E6; 
+cor-fundo-alternativa: #FFD6A8; 
+cor-fundo-alternativa: #AB6F2A; 
+cor-fundo-alternativa: #482700; */
+
+/* Quebras:
+
+@media (max-width: 576px) {}
+@media (min-width: 576px) {}
+@media (min-width: 768px) {}
+@media (min-width: 992px) {}
+@media (min-width: 1200px) {}
+@media (min-width: 1400px) {} */
+
+.btn,
+.btn:hover,
+.btn:active {
+    /* redefinindo as cores do button */
+    background-color: #00413d !important;
+    color: white !important;
+    border-color: #00413d !important;
+}
+
+header {
+    background-color: #f5f5f5;
+}
+
+footer {
+    background-color: #021F2E;
+    color: white;
+}
+
+footer img {
+    filter: brightness(0) invert(1);
+}
+
+.headerLogo,
+.footerLogo {
+    width: 140px;
+}
+
+header .nav-item:last-of-type>.nav-link:last-of-type {
+    /* para alinhar o final do nav com os outros elementos da página */
+    margin-right: -8px;
+}
+
+a {
+    /* redefinindo estilo de links */
+    text-decoration: inherit;
+    color: inherit;
+}
+
+.py-6 {
+    /* variação para tamanho maior de padding vertical do bootstrap */
+    padding-top: 10em;
+    padding-bottom: 10em;
+}
+
+.cor-fundo-alternativa {
+    /* Cor alternativa para fundo de sessão */
+    background-color: #b7cbd4;
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Água para todos | Como ajudar</title>
+    <link rel="icon" type="image/x-icon" href="imgs/favicon.webp">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/comoajudar.css">
+</head>
+
+<body>
+    <script src="js/header.js"></script>
+
+    <main>
+        <div id="hero" class="container-fluid">
+            <div class="container py-6">
+                <div class="row">
+                    <div class="col-md-5">
+                        <h1>Cada gota de ajuda faz a diferença</h1>
+                        <p>Sacie a sede de alguém. Com sua contribuição, podemos levar água limpa a crianças e famílias
+                            em todo o mundo. Com apenas $2,50, você pode garantir água segura para uma criança durante
+                            um ano.</p>
+                        <button type="button" class="btn" onclick="irAteId('doacoes')">Doar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid avisoDoacoes">
+            <div class="container py-5">
+                <p class="h2">Cada doação é destinada exclusivamente a projetos de purificação de água, garantindo que
+                    100% dos recursos sejam direcionados para esse fim.</p>
+            </div>
+        </div>
+
+        <div id="doacoes" class="container-fluid cor-fundo-alternativa">
+            <div class="container py-5">
+                <div class="row text-center">
+                    <div class="col-md-5 mx-auto mb-5">
+                        <h2>Faça uma doação</h2>
+                        <p>Sua doação fará toda a diferença. Cada centavo contribui diretamente para o fornecimento de 2
+                            litros de água potável.</p>
+                    </div>
+                    <div class="col-12">
+                        <div class="row text-center container-cards">
+                            <div class="col-md-3 mb-5 p-2 p-md-4 mx-auto">
+                                <p class="h1">R$3,00</p>
+                                <p>para saciar uma criança por 2 meses.</p>
+                                <button type="button" class="btn"
+                                    onclick="window.location='doacao.html?valor=3#hero'">Doar</button>
+                            </div>
+                            <div class="col-md-3 mb-5 p-2 p-md-4 mx-auto">
+                                <p class="h1">R$13,00</p>
+                                <p>para saciar alguém por 1 ano.</p>
+                                <button type="button" class="btn"
+                                    onclick="window.location='doacao.html?valor=13#hero'">Doar</button>
+                            </div>
+                            <div class="col-md-3 mb-5 p-2 p-md-4 mx-auto">
+                                <p class="h1">R$50,00</p>
+                                <p>para saciar uma fámilia inteira por um ano.</p>
+                                <button type="button" class="btn"
+                                    onclick="window.location='doacao.html?valor=50#hero'">Doar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="impacto" class="container-fluid">
+            <div class="container py-6">
+                <div class="col-md-6">
+                    <h2>Veja o impacto global que sua doação causa</h2>
+                    <p>Até o momento, purificamos um incrível total de 30 bilhões de litros de água.</p>
+                    <button class="btn" onclick="window.location='impacto.html'">Saiba mais</button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script>
+        function irAteId(id) {
+            var element = document.getElementById(id);
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+
+    <script src="js/footer.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+#hero {
+    background-color: #E0EFF7;
+    background-image: url("../imgs/sache.png");
+    background-repeat: no-repeat;
+}
+
+#hero .legend {
+    font-size: 12px;
+    max-width: 50%;
+    font-weight: 500;
+}
+
+#capacidade img {
+    width: 100px;
+    object-fit: none;
+    height: 100px;
+}
+
+#adquirir {
+    text-shadow: 0 0 70px #ffffff;
+    background-image: url("../imgs/agua.webp");
+    background-size: 1500px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: #021f2e;
+    color: white;
+}
+
+#impacto {
+    background-image: url("../imgs/terra.webp");
+    background-repeat: no-repeat;
+}
+
+@media (max-width: 576px) {
+    #hero {
+        background-position: right -107px bottom -314px;
+        padding-bottom: 160px;
+    }
+
+    #impacto {
+        background-position: center top 400px;
+        padding-bottom: 160px;
+    }
+}
+
+@media (min-width: 576px) {
+    #hero {
+        background-position: right -134px bottom -303px;
+        padding-bottom: 160px;
+    }
+
+    #impacto {
+        background-position: top 345px right -167px;
+        padding-bottom: 160px;
+    }
+}
+
+@media (min-width: 768px) {
+    #hero {
+        background-position: right -92px center;
+        padding-bottom: 0;
+    }
+
+    #impacto {
+        padding-bottom: 0;
+    }
+}
+
+@media (min-width: 992px) {
+    #hero {
+        background-position: right 53px center;
+    }
+
+    #impacto {
+        background-position: top 106px right -150px;
+    }
+}
+
+@media (min-width: 1200px) {
+    #hero {
+        background-position: right 77px center;
+    }
+}
+
+@media (min-width: 1400px) {
+    #hero {
+        background-position: right 122px center;
+    }
+}

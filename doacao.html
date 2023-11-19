@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Água para todos | Home</title>
+    <link rel="icon" type="image/x-icon" href="imgs/favicon.webp">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/doacao.css">
+</head>
+
+<body>
+    <script src="js/header.js"></script>
+
+    <main>
+        <div id="hero" class="container-fluid cor-fundo-alternativa">
+            <div class="container py-5">
+                <div>
+                    <div style="max-width: 500px;" class="mx-auto">
+                        <h1 style="max-width: 75%;">Sua doação vai saciar a sede <p id="nomeParagrafo">da Maria</p>.
+                        </h1>
+                        <form id="formDoacao" action="" class="mt-5">
+                            <div>
+                                <label for="nome">Nome <sup>(obrigatório)</sup></label>
+                                <input type="text" id="nome" onblur="validarNome(this)" maxlength=30>
+                                <span></span>
+                            </div>
+                            <div>
+                                <label for="email">Email <sup>(obrigatório)</sup></label>
+                                <input type="email" id="email" onblur="validarEmail(this)" maxlength=50>
+                                <span></span>
+                            </div>
+                            <div>
+                                <label for="cpf">CPF <sup>(obrigatório)</sup></label>
+                                <input type="text" id="cpf" onblur="validarCPF(this)" maxlength=11>
+                                <span></span>
+                            </div>
+                            <div>
+                                <label for="valor">Valor da doação</label>
+                                <div class="valores">
+                                    <input type="radio" id="3" name="valorDoacao">
+                                    <label for="3">R$3,00</label>
+                                    <input type="radio" id="13" name="valorDoacao">
+                                    <label for="13">R$13,00</label>
+                                    <input type="radio" id="50" name="valorDoacao">
+                                    <label for="50">$50,00</label>
+                                </div>
+                            </div>
+                            <p style="font-size: 12px; text-align: justify;">Ao doar, você concorda em compartilhar seus
+                                dados com a representante do Água para Todos e seus parceiros, diretos e indiretos,
+                                incluindo para fins midiáticos. Sempre respeitaremos sua privacidade e guarademos seus
+                                dados
+                                com segurança.</p>
+                            <button type="button" class="btn" onclick="enviarForm()">Doar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <script src="js/footer.js"></script>
+
+    <script> /* Trocar o nome do título */
+
+        const paragrafo = document.getElementById('nomeParagrafo');
+        const nomesMasculinos = ['Malik', 'Luis', 'Ismaila', 'Rajesh', 'Jamal', 'Ahmed', 'Juan', 'Mohamed', 'Nuru', 'Javier', 'Juma'];
+        const nomesFemininos = ['Fatima', 'Sanya', 'Mariam', 'Amina', 'Nisha', 'Ayana', 'Priya', 'Ana', 'Aisha'];
+
+        let index = 0;
+        let indexM = 0;
+        let indexF = 0;
+
+        function obterNome(genero) {
+            if (genero === 'm') {
+                const nome = nomesMasculinos[indexM];
+                indexM = (indexM + 1) % nomesMasculinos.length;
+                return `do ${nome}`;
+            } else {
+                const nome = nomesFemininos[indexF];
+                indexF = (indexF + 1) % nomesFemininos.length;
+                return `da ${nome}`;
+            }
+        }
+
+        function trocarNome() {
+            const genero = index % 2 === 0 ? 'm' : 'f';
+            paragrafo.textContent = obterNome(genero);
+            index++;
+        }
+
+        /* Troca o nome a cada 2 segundos */
+        setInterval(trocarNome, 2000);
+    </script>
+
+    <script> /* Validar formulário */
+
+        const camposValidados = [];
+        camposValidados.nome = false;
+        camposValidados.email = false;
+        camposValidados.cpf = false;
+
+        /* Seta todos os campos como falsos e não permite o envio (apenas via js) para o backend */
+        /* Conforme os campos forem preenchidos, muda os valores do aray e permite o envio. */
+
+        function validarNome(nome) {
+            if (nome.value.length == 0) {
+                emitirMensagem(nome, "Este campo é obrigatório.");
+                camposValidados.nome = false;
+            } else if (nome.value.length <= 5) {
+                emitirMensagem(nome, "Nome incompleto.")
+                camposValidados.nome = false;
+            } else {
+                emitirMensagem(nome, "")
+                camposValidados.nome = true;
+            }
+        }
+
+        function validarEmail(email) {
+            const re = /\S+@\S+\.\S+/;
+            if (email.value.length == 0) {
+                emitirMensagem(email, "Este campo é obrigatório.");
+                camposValidados.email = false;
+            } else {
+                if (re.test(email.value)) {
+                    camposValidados.email = true;
+                    emitirMensagem(email, "")
+                } else {
+                    camposValidados.email = false;
+                    emitirMensagem(email, "Email inválido.")
+                }
+            }
+        }
+
+        function validarCPF(cpf) {
+            const re = /\d{11}/;
+            if (cpf.value.length == 0) {
+                emitirMensagem(cpf, "Este campo é obrigatório.");
+                camposValidados.cpf = false;
+            } else if (re.test(cpf.value)) {
+                emitirMensagem(cpf, "")
+                camposValidados.cpf = true;
+            } else {
+                emitirMensagem(cpf, "São necessários 11 números, sem letras ou pontos.")
+                camposValidados.cpf = false;
+            }
+        }
+
+        function enviarForm() {
+            for (let key in camposValidados) {
+                if (camposValidados.hasOwnProperty(key)) {
+                    if (!camposValidados[key]) {
+                        alert('Os dados do formulário estão inválidos. Reveja os campos preenchidos.')
+                        return false;
+                    }
+                }
+            }
+            alert('Redirecionando para a página de pagamento.')
+            return false;
+        }
+
+        function emitirMensagem(elemento, mensagem) {
+            /* Os erros são mostrados através da span abaixo dos inputs. */
+            let span = elemento.nextElementSibling;
+            span.innerText = mensagem;
+        }
+    </script>
+
+    <script> /* Pré seleciona o valor da contribuição automaticamente com base no valor obtido do get */
+
+        /* Obtém a URL e cria um objeto com os valores dos parâmetros */
+        const queryString = window.location.search;
+        const params = new URLSearchParams(queryString);
+
+        switch (params.get('valor')) {
+            case '3':
+                document.getElementById('3').checked = true;
+                break;
+            case '13':
+                document.getElementById('13').checked = true;
+                break;
+            case '50':
+            /* Caso o valor seja 50 ou não seja preenchido, o retorno será apenas um: R$50 */
+            default:
+                document.getElementById('50').checked = true;
+                break;
+        }
+
+    </script>
+</body>
+
+</html>
